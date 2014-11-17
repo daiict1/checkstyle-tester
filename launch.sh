@@ -25,6 +25,11 @@ cat projects-to-test-on.properties | while read line; do
 
 done
 
+if [ -d "target" ]; then
+else
+  mkdir target
+fi
+
 echo "Running Checkstyle on $SOURCES_DIR ..."
 time mvn clean checkstyle:check "$@" > target/console_log.txt
 echo "Running Checkstyle on $SOURCES_DIR - finished"
