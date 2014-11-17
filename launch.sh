@@ -26,12 +26,14 @@ cat projects-to-test-on.properties | while read line; do
 done
 
 if [ -d "target" ]; then
+  echo "Existing target directory will be cleared"
+  rm -rf target/*
 else
-  mkdir target
+  mkdir "target"
 fi
 
 echo "Running Checkstyle on $SOURCES_DIR ..."
-time mvn clean checkstyle:check "$@" > target/console_log.txt
+time mvn checkstyle:check "$@" > target/console_log.txt
 echo "Running Checkstyle on $SOURCES_DIR - finished"
 
 echo "Testing Checkstyle finished"
