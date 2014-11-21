@@ -29,7 +29,16 @@
 						<groupId>com.github.sevntu.checkstyle</groupId>
 						<artifactId>sevntu-checkstyle-maven-plugin</artifactId>
 						<version>1.12.0</version>
+                        <scope>system</scope>
+                        <systemPath>${basedir}/libs/sevntu-checkstyle-maven-plugin-1.12.0.jar</systemPath>
 					</dependency>
+                    <dependency>
+                        <groupId>com.github.sevntu.checkstyle</groupId>
+                        <artifactId>sevntu-checks</artifactId>
+                        <version>1.12.0</version>
+                        <scope>system</scope>
+                        <systemPath>${basedir}/libs/sevntu-checks-1.12.0.jar</systemPath>
+                    </dependency>
 				</dependencies>
 	          <configuration>
 	            <configLocation>checkstyle.xml</configLocation>
