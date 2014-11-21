@@ -33,7 +33,11 @@ else
 fi
 
 echo "Running Checkstyle on $SOURCES_DIR ..."
+
+#comment out first line and uncomment second one to run maven in debug
 time mvn checkstyle:check "$@" > target/console_log.txt
+#time env MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y" mvn checkstyle:check "$@" > target/console_log.txt
+
 echo "Running Checkstyle on $SOURCES_DIR - finished"
 
 echo "Testing Checkstyle finished"

@@ -23,7 +23,7 @@
 					<dependency>
 					  <groupId>com.puppycrawl.tools</groupId>
 					  <artifactId>checkstyle</artifactId>
-					  <version>6.2-SNAPSHOT</version>
+					  <version>6.1</version>
 					</dependency>
 					<dependency>
 						<groupId>com.github.sevntu.checkstyle</groupId>
@@ -32,11 +32,7 @@
 					</dependency>
 				</dependencies>
 	          <configuration>
-	            <configLocation>google_checks.xml</configLocation>
-	            <!--<suppressionsFileExpression>google_checks/checkstyle.suppressions.file</suppressionsFileExpression>
-	            <suppressionsLocation>google_checks/suppressions.xml</suppressionsLocation>
-	            <headerLocation>google_checks/java.header</headerLocation>
-	            <propertyExpansion>checkstyle.importcontrol.file=google_checks/import-control.xml</propertyExpansion> -->
+	            <configLocation>checkstyle.xml</configLocation>
 	            <enableFilesSummary>true</enableFilesSummary>
 	          </configuration>
 	        </plugin>
@@ -53,7 +49,7 @@
 				<!-- 	Specifying configuration here will take effect on the execution of "mvn site",
 					 but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
 				<configuration>
-					<configLocation>google_checks.xml</configLocation>
+					<configLocation>checkstyle.xml</configLocation>
                     <failOnViolation>false</failOnViolation>
 				</configuration>
 			</plugin>
