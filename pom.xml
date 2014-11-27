@@ -30,9 +30,21 @@
 						<artifactId>sevntu-checkstyle-maven-plugin</artifactId>
 						<version>1.12.0</version>
 					</dependency>
+                    <dependency>
+                        <groupId>com.github.sevntu.checkstyle</groupId>
+                        <artifactId>sevntu-checks</artifactId>
+                        <version>1.12.0</version>
+                        <scope>system</scope>
+                        <systemPath>${basedir}/libs/sevntu-checks-1.12.0.jar</systemPath>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jxr-plugin</artifactId>
+                        <version>2.4</version>
+                    </dependency>
 				</dependencies>
 	          <configuration>
-	            <configLocation>google_checks.xml</configLocation>
+	            <configLocation>checkstyle.xml</configLocation>
 	            <!--<suppressionsFileExpression>google_checks/checkstyle.suppressions.file</suppressionsFileExpression>
 	            <suppressionsLocation>google_checks/suppressions.xml</suppressionsLocation>
 	            <headerLocation>google_checks/java.header</headerLocation>
@@ -40,21 +52,26 @@
 	            <enableFilesSummary>true</enableFilesSummary>
 	          </configuration>
 	        </plugin>
-			
 		</plugins>
 	</build>
 
 	<reporting>
 		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.9.1</version>
+				<version>2.13</version>
 				<!-- 	Specifying configuration here will take effect on the execution of "mvn site",
 					 but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
 				<configuration>
-					<configLocation>google_checks.xml</configLocation>
+					<configLocation>checkstyle.xml</configLocation>
                     <failOnViolation>false</failOnViolation>
+                     <linkXRef>true</linkXRef>
 				</configuration>
 			</plugin>
 		</plugins>
