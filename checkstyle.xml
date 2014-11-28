@@ -6,7 +6,7 @@
 
 <module name="Checker">
   <module name="TreeWalker">
-    <module name="UselessSingleCatchCheck">
+    <module name="NameConventionForJUnit4TestClassesCheck">
       <property name="severity" value="warning"/>
     </module>
   </module>
