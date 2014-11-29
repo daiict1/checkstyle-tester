@@ -29,6 +29,8 @@
 						<groupId>com.github.sevntu.checkstyle</groupId>
 						<artifactId>sevntu-checkstyle-maven-plugin</artifactId>
 						<version>1.13.0</version>
+                        <scope>system</scope>
+                        <systemPath>${basedir}/libs/sevntu-checkstyle-maven-plugin-1.13.0.jar</systemPath>
 					</dependency>
                     <dependency>
                         <groupId>com.github.sevntu.checkstyle</groupId>

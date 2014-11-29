@@ -6,7 +6,7 @@
 
 <module name="Checker">
   <module name="TreeWalker">
-    <module name="UselessSingleCatchCheck">
+    <module name="UselessSuperCtorCallCheck">
       <property name="severity" value="warning"/>
     </module>
   </module>
