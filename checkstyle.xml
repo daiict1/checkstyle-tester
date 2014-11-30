@@ -8,6 +8,7 @@
   <module name="TreeWalker">
     <module name="UselessSuperCtorCallCheck">
       <property name="severity" value="warning"/>
+      <property name="allowCallToNoArgsSuperCtorFromDerivedClass" value="true"/>
     </module>
   </module>
 </module>
