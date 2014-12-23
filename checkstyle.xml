@@ -6,7 +6,7 @@
 
 <module name="Checker">
   <module name="TreeWalker">
-    <module name="NameConventionForJUnit4TestClassesCheck">
+    <module name="NameConventionForJunit4TestClassesCheck">
       <property name="severity" value="warning"/>
       <property name="expectedClassNameRegex" value=".+Test|Test.+|.+IT|.+TestCase"/>
       <property name="classAnnotationNameRegex" value=""/>
