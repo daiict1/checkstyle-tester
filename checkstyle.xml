@@ -8,7 +8,7 @@
   <module name="TreeWalker">
     <module name="NameConventionForJunit4TestClassesCheck">
       <property name="severity" value="warning"/>
-      <property name="expectedClassNameRegex" value=".+Test|Test.+|.+IT|.+TestCase"/>
+      <property name="expectedClassNameRegex" value=".+Test|.+Tests|Test.+|Tests.+|.+IT|.+ITs|.+TestCase|.+TestCases"/>
       <property name="classAnnotationNameRegex" value=""/>
       <property name="methodAnnotationNameRegex" value="Test|org.junit.Test"/>
     </module>
