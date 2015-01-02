@@ -51,7 +51,7 @@
 	            <suppressionsLocation>google_checks/suppressions.xml</suppressionsLocation>
 	            <headerLocation>google_checks/java.header</headerLocation>
 	            <propertyExpansion>checkstyle.importcontrol.file=google_checks/import-control.xml</propertyExpansion> -->
-	            <enableFilesSummary>true</enableFilesSummary>
+	            <enableFilesSummary>false</enableFilesSummary>
 	          </configuration>
 	        </plugin>
 		</plugins>
@@ -72,6 +72,7 @@
 					 but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
 				<configuration>
 					<configLocation>checkstyle.xml</configLocation>
+                    <enableFilesSummary>false</enableFilesSummary>
                     <failOnViolation>false</failOnViolation>
                      <linkXRef>true</linkXRef>
 				</configuration>
