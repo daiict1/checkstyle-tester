@@ -6,7 +6,7 @@
 
 <module name="Checker">
   <module name="TreeWalker">
-    <module name="UselessSuperCtorCallCheck">
+    <module name="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck">
       <property name="severity" value="warning"/>
       <property name="allowCallToNoArgsSuperCtor" value="false"/>
       <property name="allowCallToNoArgsSuperCtorIfMultiplePublicCtor" value="false"/>

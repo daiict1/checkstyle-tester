@@ -46,13 +46,21 @@
                     </dependency>
 				</dependencies>
 	          <configuration>
-	            <configLocation>checkstyle.xml</configLocation>
-	            <!--<suppressionsFileExpression>google_checks/checkstyle.suppressions.file</suppressionsFileExpression>
-	            <suppressionsLocation>google_checks/suppressions.xml</suppressionsLocation>
-	            <headerLocation>google_checks/java.header</headerLocation>
-	            <propertyExpansion>checkstyle.importcontrol.file=google_checks/import-control.xml</propertyExpansion> -->
-	            <enableFilesSummary>false</enableFilesSummary>
-	          </configuration>
+                    <property name="severity" value="warning"/>
+                    <checkstyleRules>
+                        <module name="Checker">
+                                <module name="UselessSuperCtorCallCheck">
+
+                                    <property name="allowCallToNoArgsSuperCtor" value="false"/>
+                                    <property name="allowCallToNoArgsSuperCtorIfMultiplePublicCtor" value="false"/>
+                                </module>
+                        </module>
+                    </checkstyleRules>
+                    <enableFilesSummary>false</enableFilesSummary>
+                    <failOnViolation>false</failOnViolation>
+                    <linkXRef>true</linkXRef>
+                    <enableRulesSummary>true</enableRulesSummary>
+                </configuration>
 	        </plugin>
 		</plugins>
 	</build>
@@ -71,12 +79,39 @@
 				<!-- 	Specifying configuration here will take effect on the execution of "mvn site",
 					 but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
 				<configuration>
-					<configLocation>checkstyle.xml</configLocation>
+                    <checkstyleRules>
+                        <module name="Checker">
+                                <module name="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck">
+                                    <property name="severity" value="warning"/>
+                                    <property name="allowCallToNoArgsSuperCtor" value="false"/>
+                                    <property name="allowCallToNoArgsSuperCtorIfMultiplePublicCtor" value="false"/>
+                                </module>
+                        </module>
+                    </checkstyleRules>
                     <enableFilesSummary>false</enableFilesSummary>
                     <failOnViolation>false</failOnViolation>
-                     <linkXRef>true</linkXRef>
+                    <linkXRef>true</linkXRef>
+                    <enableRulesSummary>true</enableRulesSummary>
 				</configuration>
 			</plugin>
+            <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependencies</report>
+              <report>project-team</report>
+              <report>mailing-list</report>
+              <report>cim</report>
+              <report>issue-tracking</report>
+              <report>license</report>
+              <report>scm</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
 		</plugins>
 	</reporting>
 
