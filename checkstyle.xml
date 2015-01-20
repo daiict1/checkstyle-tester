@@ -8,7 +8,8 @@
   <module name="TreeWalker">
     <module name="EmptyPublicCtorInClassCheck">
       <property name="severity" value="warning"/>
-      <property name="annotationNames" value="javax.persistence.Entity|org.elasticsearch.common.inject.Inject|org.elasticsearch.common.inject.assistedinject.AssistedInject"/>
+      <property name="classAnnotationNames" value="javax.persistence.Entity"/>
+      <property name="ctorAnnotationNames" value="com.google.inject.Inject"/>
     </module>
   </module>
 </module>
