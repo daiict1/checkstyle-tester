@@ -1,37 +1,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.sevntu.checkstyle</groupId>
-	<artifactId>sample</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <groupId>com.github.sevntu.checkstyle</groupId>
+    <artifactId>sample</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<build>
-		<plugins>
-			<plugin>
-	          <groupId>org.apache.maven.plugins</groupId>
-	          <artifactId>maven-checkstyle-plugin</artifactId>
-	          <version>2.13</version>
-				<dependencies>
-					<dependency>
-					  <groupId>com.puppycrawl.tools</groupId>
-					  <artifactId>checkstyle</artifactId>
-					  <version>6.3-SNAPSHOT</version>
-					</dependency>
-					<dependency>
-						<groupId>com.github.sevntu.checkstyle</groupId>
-						<artifactId>sevntu-checkstyle-maven-plugin</artifactId>
-						<version>1.13.0</version>
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-checkstyle-plugin</artifactId>
+              <version>2.13</version>
+                <dependencies>
+                    <dependency>
+                      <groupId>com.puppycrawl.tools</groupId>
+                      <artifactId>checkstyle</artifactId>
+                      <version>6.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.github.sevntu.checkstyle</groupId>
+                        <artifactId>sevntu-checkstyle-maven-plugin</artifactId>
+                        <version>1.13.0</version>
                         <scope>system</scope>
                         <systemPath>${basedir}/libs/sevntu-checkstyle-maven-plugin-1.13.0.jar</systemPath>
-					</dependency>
+                    </dependency>
                     <dependency>
                         <groupId>com.github.sevntu.checkstyle</groupId>
                         <artifactId>sevntu-checks</artifactId>
@@ -44,83 +44,48 @@
                         <artifactId>maven-jxr-plugin</artifactId>
                         <version>2.4</version>
                     </dependency>
-				</dependencies>
-	          <configuration>
-                    <property name="severity" value="warning"/>
-                    <checkstyleRules>
-                        <module name="Checker">
-                                <module name="UselessSuperCtorCallCheck">
+                </dependencies>
+              <configuration>
+                <configLocation>checkstyle.xml</configLocation>
+                <!--<suppressionsFileExpression>google_checks/checkstyle.suppressions.file</suppressionsFileExpression>
+                <suppressionsLocation>google_checks/suppressions.xml</suppressionsLocation>
+                <headerLocation>google_checks/java.header</headerLocation>
+                <propertyExpansion>checkstyle.importcontrol.file=google_checks/import-control.xml</propertyExpansion> -->
+                <enableFilesSummary>false</enableFilesSummary>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-                                    <property name="allowCallToNoArgsSuperCtor" value="false"/>
-                                    <property name="allowCallToNoArgsSuperCtorIfMultiplePublicCtor" value="false"/>
-                                </module>
-                        </module>
-                    </checkstyleRules>
-                    <enableFilesSummary>false</enableFilesSummary>
-                    <failOnViolation>false</failOnViolation>
-                    <linkXRef>true</linkXRef>
-                    <enableRulesSummary>true</enableRulesSummary>
-                </configuration>
-	        </plugin>
-		</plugins>
-	</build>
-
-	<reporting>
-		<plugins>
+    <reporting>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>2.4</version>
             </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.13</version>
-				<!-- 	Specifying configuration here will take effect on the execution of "mvn site",
-					 but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
-				<configuration>
-                    <checkstyleRules>
-                        <module name="Checker">
-                                <module name="com.github.sevntu.checkstyle.checks.coding.UselessSuperCtorCallCheck">
-                                    <property name="severity" value="warning"/>
-                                    <property name="allowCallToNoArgsSuperCtor" value="false"/>
-                                    <property name="allowCallToNoArgsSuperCtorIfMultiplePublicCtor" value="false"/>
-                                </module>
-                        </module>
-                    </checkstyleRules>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.13</version>
+                <!--    Specifying configuration here will take effect on the execution of "mvn site",
+                     but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
                     <enableFilesSummary>false</enableFilesSummary>
                     <failOnViolation>false</failOnViolation>
-                    <linkXRef>true</linkXRef>
-                    <enableRulesSummary>true</enableRulesSummary>
-				</configuration>
-			</plugin>
-            <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.7</version>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>dependencies</report>
-              <report>project-team</report>
-              <report>mailing-list</report>
-              <report>cim</report>
-              <report>issue-tracking</report>
-              <report>license</report>
-              <report>scm</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-		</plugins>
-	</reporting>
+                     <linkXRef>true</linkXRef>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>sevntu-maven</id>
-			<name>sevntu-maven</name>
-			<url>http://sevntu-checkstyle.github.com/sevntu.checkstyle/maven2</url>
-		</pluginRepository>
-	</pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sevntu-maven</id>
+            <name>sevntu-maven</name>
+            <url>http://sevntu-checkstyle.github.com/sevntu.checkstyle/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
