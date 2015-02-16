@@ -23,24 +23,29 @@
 					<dependency>
 					  <groupId>com.puppycrawl.tools</groupId>
 					  <artifactId>checkstyle</artifactId>
-					  <version>6.3-SNAPSHOT</version>
+					  <version>6.4-SNAPSHOT</version>
+                      <scope>system</scope>
+                      <systemPath>${basedir}/libs/checkstyle-6.4-SNAPSHOT.jar</systemPath>
 					</dependency>
-					<dependency>
-						<groupId>com.github.sevntu.checkstyle</groupId>
-						<artifactId>sevntu-checkstyle-maven-plugin</artifactId>
-						<version>1.13.0</version>
-					</dependency>
-                    <dependency>
-                        <groupId>com.github.sevntu.checkstyle</groupId>
-                        <artifactId>sevntu-checks</artifactId>
-                        <version>1.13.0</version>
-                        <scope>system</scope>
-                        <systemPath>${basedir}/libs/sevntu-checks-1.13.0.jar</systemPath>
-                    </dependency>
                     <dependency>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-jxr-plugin</artifactId>
                         <version>2.4</version>
+                    </dependency>
+                        <dependency>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                        <version>18.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>commons-beanutils</groupId>
+                        <artifactId>commons-beanutils-core</artifactId>
+                        <version>1.8.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>commons-cli</groupId>
+                        <artifactId>commons-cli</artifactId>
+                        <version>1.2</version>
                     </dependency>
 				</dependencies>
 	          <configuration>
@@ -76,13 +81,4 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>sevntu-maven</id>
-			<name>sevntu-maven</name>
-			<url>http://sevntu-checkstyle.github.com/sevntu.checkstyle/maven2</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 </project>
